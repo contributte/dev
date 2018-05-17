@@ -70,7 +70,7 @@ composer require contributte/dev
         <a href="https://github.com/f3l1x">Milan Felix Šulc</a>
       </td>
     </tr>
-  <tbody>
+  </tbody>
 </table>
 
 ---
