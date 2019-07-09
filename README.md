@@ -26,6 +26,7 @@ composer require contributte/dev
 
 | State       | Version | Branch   | PHP      |
 |-------------|---------|----------|----------|
+| dev         | `^0.2`  | `master` | `>= 5.6` |
 | stable      | `^0.1`  | `master` | `>= 5.6` |
 
 ## Overview
