@@ -16,11 +16,10 @@
 
 [![Join the chat](https://img.shields.io/gitter/room/contributte/contributte.svg?style=flat-square)](http://bit.ly/ctteg)
 
-## Install
-
-```
-composer require contributte/dev
-```
+## Documentation
+- [Install](.docs/README.md#install)
+- [Shortcuts](.docs/README.md#shortcuts)
+- [Functions](.docs/README.md#functions)
 
 ## Versions
 
@@ -28,35 +27,6 @@ composer require contributte/dev
 |-------------|---------|----------|----------|
 | dev         | `^0.2`  | `master` | `>= 5.6` |
 | stable      | `^0.1`  | `master` | `>= 5.6` |
-
-## Overview
-
-### Shortcuts
-
-```php
- * @function d - dump;
- * @function dd - dump; die;
- * @function ed - echo; die;
- * @function fd - foreach dump;
- * @function fdd - foreach dump; die;
- * @function td - table dump;
- * @function tdd - table dump; die;
- * @function bd - barDump;
- * @function wc - where called (backtrace)
- * @function ss - convert to shortcut;
- * @function e - show debug bar;
- * @function l - log message
- * @function erd - throw error and dump parameters
- * @function c - return instance
- * @function cl - clone instance
- * @function callback - call object method
-```
-
-### Functions
-
-```php
- * @function callback - call object method
-```
 
 ## Maintainers
 
