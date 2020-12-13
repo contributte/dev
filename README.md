@@ -1,49 +1,52 @@
-# Contributte > DEV
+![](https://heatbadger.now.sh/github/readme/contributte/dev/)
 
-:godmode: Set of tools for development / debugging.
+<p align=center>
+  <a href="https://github.com/contributte/dev/actions"><img src="https://badgen.net/github/checks/contributte/dev/master?cache=300"></a>
+  <a href="https://coveralls.io/r/contributte/dev"><img src="https://badgen.net/coveralls/c/github/contributte/dev?cache=300"></a>
+  <a href="https://packagist.org/packages/contributte/dev"><img src="https://badgen.net/packagist/dm/contributte/dev"></a>
+  <a href="https://packagist.org/packages/contributte/dev"><img src="https://badgen.net/packagist/v/contributte/dev"></a>
+</p>
+<p align=center>
+  <a href="https://packagist.org/packages/contributte/dev"><img src="https://badgen.net/packagist/php/contributte/dev"></a>
+  <a href="https://github.com/contributte/dev"><img src="https://badgen.net/github/license/contributte/dev"></a>
+  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
------
+<p align=center>
+Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
-[![Build Status](https://img.shields.io/travis/contributte/dev.svg?style=flat-square)](https://travis-ci.org/contributte/dev)
-[![Code coverage](https://img.shields.io/coveralls/contributte/dev.svg?style=flat-square)](https://coveralls.io/r/contributte/dev)
-[![Licence](https://img.shields.io/packagist/l/contributte/dev.svg?style=flat-square)](https://packagist.org/packages/contributte/dev)
+## Usage
 
-[![Downloads this Month](https://img.shields.io/packagist/dm/contributte/dev.svg?style=flat-square)](https://packagist.org/packages/contributte/dev)
-[![Downloads total](https://img.shields.io/packagist/dt/contributte/dev.svg?style=flat-square)](https://packagist.org/packages/contributte/dev)
-[![Latest stable](https://img.shields.io/packagist/v/contributte/dev.svg?style=flat-square)](https://packagist.org/packages/contributte/dev)
+To install latest version of `contributte/dev` use [Composer](https://getcomposer.com).
 
-## Discussion / Help
-
-[![Join the chat](https://img.shields.io/gitter/room/contributte/contributte.svg?style=flat-square)](http://bit.ly/ctteg)
+```
+composer require contributte/dev
+```
 
 ## Documentation
-- [Install](.docs/README.md#install)
-- [Shortcuts](.docs/README.md#shortcuts)
-- [Functions](.docs/README.md#functions)
+
+For details on how to use this package, check out our [documentation](.docs).
 
 ## Versions
 
-| State       | Version | Branch   | PHP      |
-|-------------|---------|----------|----------|
-| dev         | `^0.2`  | `master` | `>= 5.6` |
-| stable      | `^0.1`  | `master` | `>= 5.6` |
+| State       | Version | Branch   | Nette  | PHP     |
+|-------------|---------|----------|--------|---------|
+| dev         | `^0.4`  | `master` | 3.0+   | `>=7.2` |
+| stable      | `^0.3`  | `master` | 2.4+   | `>=7.2` |
 
-## Maintainers
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/f3l1x">
-            <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=150">
-        </a>
-        </br>
-        <a href="https://github.com/f3l1x">Milan Felix Šulc</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+## Development
 
----
+See [how to contribute](https://contributte.org) to this package. This package is currently maintained by these authors.
 
-Thank you for testing, reporting and contributing.
+<a href="https://github.com/f3l1x">
+    <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
+
+-----
+
+Consider to [support](https://contributte.com/partners) **contributte** development team.
+Also thank you for using this package.
