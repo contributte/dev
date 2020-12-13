@@ -12,33 +12,22 @@
     }
   ],
   "require": {
-    "php": ">= 5.6"
+    "php": ">=7.2"
   },
   "require-dev": {
-    "ninjify/qa": "^0.4.0",
-    "ninjify/nunjuck": "^0.1.4"
+    "ninjify/qa": "^0.12",
+    "ninjify/nunjuck": "^0.4"
   },
   "autoload": {
     "files": [
-      "src/functions.php",
       "src/shortcuts.php"
     ]
   },
-  "scripts": {
-    "qa": [
-      "linter src tests",
-      "codesniffer src tests"
-    ],
-    "tester": [
-      "tester -s -p php --colors 1 -c tests/php-unix.ini tests/cases"
-    ],
-    "tester-coverage": [
-      "tester -s -p php --colors 1 -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src tests/cases"
-    ]
-  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "extra": {
     "branch-alias": {
-      "dev-master": "0.2.x-dev"
+      "dev-master": "0.4.x-dev"
     }
   }
 }
