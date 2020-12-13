@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 use Nette\Utils\Json;
 use Tracy\Debugger;
@@ -22,6 +22,7 @@ use Tracy\Helpers;
  * @function erd - throw error and dump parameters
  * @function c - return instance
  * @function cl - clone instance
+ * @function callback - call object method
  *
  * </pre>
  *
@@ -319,4 +320,16 @@ function c($instance)
 function cl($instance)
 {
 	return clone $instance;
+}
+
+/**
+ * PHP callback workaround
+ *
+ * @param object $obj
+ * @param string $method
+ * @return array
+ */
+function callback($obj, $method)
+{
+	return [$obj, $method];
 }
