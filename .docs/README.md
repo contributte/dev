@@ -1,9 +1,9 @@
 # Contributte > DEV
 
 ## Content
+
 - [Install](#install)
-- [Shortcuts](#shortcuts)
-- [Functions](#functions)
+- [Usage](#usage)
 
 ## Install
 
@@ -11,7 +11,7 @@
 composer require contributte/dev
 ```
 
-## Shortcuts
+## Usage
 
 ```php
  * @function d - dump;
@@ -29,10 +29,5 @@ composer require contributte/dev
  * @function erd - throw error and dump parameters
  * @function c - return instance
  * @function cl - clone instance
-```
-
-## Functions
-
-```php
  * @function callback - call object method
 ```
