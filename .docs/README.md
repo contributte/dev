@@ -8,7 +8,7 @@
 ## Install
 
 ```
-composer require contributte/dev
+$ composer require contributte/dev
 ```
 
 ## Usage
