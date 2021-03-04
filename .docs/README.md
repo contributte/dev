@@ -7,8 +7,8 @@
 
 ## Install
 
-```
-$ composer require contributte/dev
+```bash
+composer require contributte/dev
 ```
 
 ## Usage
