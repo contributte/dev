@@ -7,7 +7,7 @@
 
 ## Install
 
-```
+```bash
 composer require contributte/dev
 ```
 

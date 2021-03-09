@@ -22,7 +22,7 @@ Website ğŸš€ <a href="https://contributte.org">contributte.org</a> | Contact ğŸ‘
 
 To install latest version of `contributte/dev` use [Composer](https://getcomposer.com).
 
-```
+```bash
 composer require contributte/dev
 ```
 
