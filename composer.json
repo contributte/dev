@@ -1,7 +1,11 @@
 {
   "name": "contributte/dev",
   "description": "Tools for development",
-  "keywords": ["nette", "development", "shortcuts"],
+  "keywords": [
+    "nette",
+    "development",
+    "shortcuts"
+  ],
   "type": "library",
   "license": "MIT",
   "homepage": "https://github.com/contributte/dev",
