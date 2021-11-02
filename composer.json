@@ -1,10 +1,12 @@
 {
   "name": "contributte/dev",
-  "description": "Tools for development",
+  "description": "Tools for development with Nette and Tracy",
   "keywords": [
     "nette",
     "development",
-    "shortcuts"
+    "shortcuts",
+    "debugger",
+    "functions"
   ],
   "type": "library",
   "license": "MIT",
