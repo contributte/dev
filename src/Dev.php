@@ -7,6 +7,7 @@ use Nette\Utils\Json;
 use RuntimeException;
 use Tracy\Debugger;
 use Tracy\Helpers;
+use Traversable;
 
 class Dev
 {
@@ -35,9 +36,9 @@ class Dev
 	/**
 	 * echo;die
 	 *
-	 * @param mixed $value
+	 * @param scalar $value
 	 */
-	public static function ed($value): void
+	public static function ed(mixed $value): void
 	{
 		echo $value;
 		die;
@@ -46,12 +47,12 @@ class Dev
 	/**
 	 * Foreach dump;
 	 *
-	 * @param mixed $values
+	 * @param array<mixed|mixed[]> $values
 	 */
-	public static function fd($values): void
+	public static function fd(array $values): void
 	{
-		foreach ($values as $key => $value) {
-			if (!is_array($value) && !is_scalar($value)) {
+		foreach ($values as $value) {
+			if ($value instanceof Traversable) {
 				$value = iterator_to_array($value);
 			}
 
@@ -63,9 +64,9 @@ class Dev
 	/**
 	 * Foreach dump;die;
 	 *
-	 * @param mixed $values
+	 * @param mixed[] $values
 	 */
-	public static function fdd($values): void
+	public static function fdd(array $values): void
 	{
 		self::fd($values);
 		die;
@@ -74,16 +75,16 @@ class Dev
 	/**
 	 * Table dump;
 	 *
-	 * @param mixed $values
+	 * @param mixed[] $values
 	 */
-	public static function td($values): void
+	public static function td(array $values): void
 	{
 		echo "<table border=1 style='border-color:#DDD;border-collapse:collapse; font-family:Courier New; color:#222; font-size:13px' cellspacing=0 cellpadding=5>";
 		$th = false;
-		foreach ($values as $key => $value) {
+		foreach ($values as $value) {
 			if (!$th) {
 				echo '<tr>';
-				foreach ($value as $key2 => $value2) {
+				foreach ((array) $value as $key2 => $value2) {
 					echo '<th>' . $key2 . '</th>';
 				}
 
@@ -93,7 +94,7 @@ class Dev
 			$th = true;
 
 			echo '<tr>';
-			foreach ($value as $key2 => $value2) {
+			foreach ((array) $value as $key2 => $value2) {
 				echo '<td>' . $value2 . '</td>';
 			}
 
@@ -106,9 +107,9 @@ class Dev
 	/**
 	 * Table dump;die;
 	 *
-	 * @param mixed $values
+	 * @param mixed[] $values
 	 */
-	public static function tdd($values): void
+	public static function tdd(array $values): void
 	{
 		self::td($values);
 		die;
@@ -116,17 +117,14 @@ class Dev
 
 	/**
 	 * Bar dump shortcut.
-	 *
-	 * @param mixed $var
-	 * @return mixed
 	 */
-	public static function bd($var, ?string $title = null)
+	public static function bd(mixed $var, ?string $title = null): mixed
 	{
 		$trace = debug_backtrace();
 		$traceTitle = (isset($trace[1]['class']) ? htmlspecialchars($trace[1]['class']) . '->' : null) .
-			htmlspecialchars($trace[1]['function']) . '():' . $trace[0]['line'];
+			htmlspecialchars($trace[1]['function']) . '():';
 
-		if (!is_scalar($title) && $title !== null) {
+		if ($title === null) {
 			foreach (func_get_args() as $arg) {
 				Debugger::barDump($arg, $traceTitle);
 			}
@@ -134,22 +132,16 @@ class Dev
 			return $var;
 		}
 
-		return Debugger::barDump($var, $title ?: $traceTitle);
+		return Debugger::barDump($var, $title);
 	}
 
 	/**
 	 * Function prints from where were method/function called
-	 *
-	 * @return mixed|void
 	 */
-	public static function wc(int $level = 1, bool $return = false, bool $fullTrace = false)
+	public static function wc(int $level = 1, bool $return = false, bool $fullTrace = false): mixed
 	{
-		$o = function ($t) {
-			return (isset($t->class) ? htmlspecialchars($t->class) . '->' : null) . htmlspecialchars($t->function) . '()';
-		};
-		$f = function ($t) {
-			return isset($t->file) ? '(' . Helpers::editorLink($t->file, $t->line) . ')' : null;
-		};
+		$o = fn ($t) => (isset($t->class) ? htmlspecialchars($t->class) . '->' : null) . htmlspecialchars($t->function) . '()';
+		$f = fn ($t) => isset($t->file) ? '(' . Helpers::editorLink($t->file, $t->line ?? null) . ')' : null;
 
 		$trace = debug_backtrace();
 		$target = (object) $trace[$level];
@@ -166,10 +158,12 @@ class Dev
 		}
 
 		if ($return) {
-			return strip_tags($message);
+			return strip_tags((string) $message);
 		}
 
-		echo "<pre class='nette-dump'>" . nl2br($message) . '</pre>';
+		echo "<pre class='nette-dump'>" . nl2br((string) $message) . '</pre>';
+
+		return null;
 	}
 
 	/**
@@ -182,10 +176,8 @@ class Dev
 
 	/**
 	 * Convert script into shortcut; exit;
-	 *
-	 * @param mixed $code
 	 */
-	public static function ss($code): void
+	public static function ss(string $code): void
 	{
 		$array = [
 			"\t" => "\\t",
@@ -193,7 +185,7 @@ class Dev
 		];
 
 		echo strtr($code, $array);
-		exit();
+		exit;
 	}
 
 	/**
@@ -217,9 +209,7 @@ class Dev
 	 */
 	public static function log(string $message): void
 	{
-		$message = array_map(function ($message) {
-			return !is_scalar($message) ? Json::encode($message) : $message;
-		}, func_get_args());
+		$message = array_map(fn ($message) => !is_scalar($message) ? Json::encode($message) : $message, func_get_args());
 
 		Debugger::log(implode(', ', $message));
 	}
@@ -229,7 +219,7 @@ class Dev
 	 */
 	public static function erd(): void
 	{
-		$e = new RuntimeException;
+		$e = new RuntimeException();
 		fd(func_get_args());
 		echo '<hr />';
 		fd($e->getTrace());
@@ -263,9 +253,12 @@ class Dev
 
 	/**
 	 * PHP callback workaround
+	 *
+	 * @return array{object, string}
 	 */
 	public static function callback(object $obj, string $method): array
 	{
 		return [$obj, $method];
 	}
+
 }
