@@ -2,7 +2,6 @@
 
 namespace Contributte\Dev;
 
-use Nette\StaticClass;
 use Nette\Utils\Json;
 use RuntimeException;
 use Tracy\Debugger;
@@ -12,7 +11,10 @@ use Traversable;
 class Dev
 {
 
-	use StaticClass;
+	final private function __construct()
+	{
+		// Static class - cannot be instantiated.
+	}
 
 	/**
 	 * Dump;
